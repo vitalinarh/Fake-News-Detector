@@ -7,3 +7,25 @@ Nowadays, fake news has become a common trend. Even trusted media houses are kno
 In this project, I have built a classifier model that can identify news as real or fake. For this purpose, a dataset from Kaggle was used (https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset).
 
 With the help of this project, I created an Machine Learning classifier using Random Forest classifier to detect whether the news is real or fake.
+
+## Run the program
+To run this project, you need to have Python installed on your computer. You can download it from here: https://www.python.org/
+
+Next you need to install all the requirements via pip.
+
+```
+pip install -r requirements.txt
+
+
+```
+
+And finally you can deploy the app via:
+```
+python app.py
+
+
+```
+
+It should deploy and be available via: 127.0.0.0:5000
+
+
