@@ -16,16 +16,14 @@ Next you need to install all the requirements via pip.
 ```
 pip install -r requirements.txt
 
-
 ```
 
 And finally you can deploy the app via:
 ```
 python app.py
 
-
 ```
 
-It should deploy and be available via: 127.0.0.0:5000
+It should deploy and be available via: 127.0.0.1:5000
 
 
