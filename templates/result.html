@@ -1,0 +1,81 @@
+<html>
+<head>
+<link rel="stylesheet" href="/static/css/style.css">
+<body>
+
+<section class="hero image-as-background" style="background-image: url('https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/https://www.maize.io/wp-content/uploads/2023/05/cover_hi-4.jpg');">
+  <div class="hero-container">
+    <h1 class="hero-title animate fadeInLeft delay-600">Fake News Detector</h1>
+  </div>
+</section>
+
+<br>
+
+  <div class="first-slide">
+    <div class="first-content">
+      <h1>What is Fake News?</h1>
+      <p>Fake news, also known as disinformation or misinformation, refers to false or misleading information presented as genuine news or facts. In an era where information is readily accessible and shareable through digital platforms and social media, fake news has become a significant concern. It can have far-reaching consequences, influencing public opinion, shaping political discourse, and even causing harm in various ways. </p>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="second-slide">
+    <div class="second-content-1">
+      <h1>Examples of Fake News:</h1>
+      <h2>Pizzagate</h2>
+      <p>In 2016, a baseless conspiracy theory emerged that claimed a Washington, D.C. pizzeria was the center of a child sex trafficking ring involving prominent political figures. This false narrative was widely circulated and even led to an armed individual entering the restaurant, believing the conspiracy to be true.</p>
+      <h2>COVID-19 Misinformation</h2>
+      <p>Throughout the COVID-19 pandemic, a flood of fake news and misleading information spread rapidly. This included false cures, exaggerated death tolls, and conspiracy theories about the virus's origin. Such misinformation could potentially impact public health and safety.</p>
+      <h2>Election Fraud Claims</h2>
+      <p>Following the 2020 U.S. presidential election, unfounded claims of widespread election fraud were disseminated, leading to concerns about the integrity of the electoral process. These false claims culminated in the storming of the U.S. Capitol on January 6, 2021.</p>
+      <h2>Deepfakes</h2>
+      <p>Advanced technology enables the creation of realistic videos or audio recordings of individuals saying or doing things they never did. These deepfake videos can be used to spread false information or manipulate public figures' images.</p>
+    </div>
+
+    
+    <div class="second-content-2">
+    <figure>
+      <img src="static/assets/gettyimages-6254465021.webp" alt="Trulli" style="width:55%">
+    </figure>  
+    <figure>
+      <img src="static/assets/covid.webp" alt="Trulli" style="width:55%">
+    </figure>  
+    <figure>
+      <img src="static/assets/fraud.jpeg" alt="Trulli" style="width:55%">
+    </figure>  
+    <figure>
+      <img src="static/assets/deepfake.jpeg" alt="Trulli" style="width:55%">
+    </figure>  
+  </div>
+</div>
+
+<br>
+
+<div class="third-slide">
+  <div class="third-content-1">
+    <div class="text-block">
+    <h1>Predict Fake News</h1>
+    <h2>Check your news article Real or Fake by url.</h2>
+  </div>
+  </div>
+  <div class="third-content-2">
+	  <form action = "/predict" method = "post">
+      <left>
+        <input class="input" type = "url", name = "link", placeholder="Enter url here">
+        <button type="submit" class="button-17" value="submit">Predict</button>
+      </left>
+      </form>
+      <p style="color:aliceblue;font-size:20;text-align: center;"><b>Result:</b></p>
+      <div class="results">	
+      {% if prediction == 1%}
+      <h2 style="color:blue;">Real News</h2>
+      {% elif prediction == 0%}
+      <h2 style="color:red;">Fake News</h2>
+      {% endif %}
+  </div>
+</div>
+</div>
+
+</body>
+</html>
