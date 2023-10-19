@@ -1,18 +1,13 @@
-from flask import Flask,render_template,url_for,request
-import pandas as pd 
+from flask import Flask, render_template, request
 import pickle
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
-import joblib
 import urllib
+from sklearn.feature_extraction.text import CountVectorizer
 from newspaper import Article
-import pickle
 
-# load the model from disk
-filename = 'pac.pkl'
-clf = pickle.load(open(filename, 'rb'))
+clf_file = 'random_forest.pkl'
+clf = pickle.load(open(clf_file, 'rb'))
 tfidf=pickle.load(open('tfidf_vectorizer.pkl','rb'))
-svd=pickle.load(open('svd_vectorizer.pkl','rb'))
+#svd=pickle.load(open('svd_vectorizer.pkl','rb'))
 app = Flask(__name__)
 
 @app.route('/')
@@ -21,8 +16,6 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-	#if request.method == 'POST':
-    #url = request.form['link']
     url = request.get_data(as_text=True)[5:]
     url = urllib.parse.unquote(url)
     article = Article(str(url))
@@ -39,7 +32,14 @@ def predict():
 
     print(vect)
 	
-    my_prediction = clf.predict(vect)
+    my_prediction = clf.predict_proba(vect)
+
+    print(my_prediction)
+	
+    if my_prediction[0][0] >= 0.7:
+        my_prediction = 0
+    else:
+        my_prediction = 1
 	
     print(my_prediction)
 	
